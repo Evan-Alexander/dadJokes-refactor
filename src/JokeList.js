@@ -29,8 +29,8 @@ function JokeList() {
     const votedJokes = [...jokes].map(j => j.id === id ? {...j, votes: j.votes + delta } : j)
     setJokes(votedJokes)
   }
-  const handleClick = (seenJokes, jokes) => {
-    console.log(jokes); 
+  const handleClick = (jokes) => {
+    setSeenJokes(jokes);
     console.log('clicked');
   }
   return (
@@ -40,7 +40,7 @@ function JokeList() {
             <span>Dad</span> Jokes
           </h1>
         <img src="https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg" alt="joke icon"/>
-        <button onClick={handleClick} className="jokeList__getmore">New Jokes</button>
+        <button onClick={() => handleClick(jokes)} className="jokeList__getmore">New Jokes</button>
       </div>
 
       <div className="jokeList__jokes">
